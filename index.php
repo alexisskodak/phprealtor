@@ -14,7 +14,6 @@ $pdo = getPdoInstance(DB_HOST, DB_NAME, DB_USER, DB_PASS);
 // Recuperation de toutes les annonces
 $listings = getAllListings($pdo);
 
-
 // Affichage
 render('templates/index.phtml', [
     'listings' => $listings,
