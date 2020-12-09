@@ -1,0 +1,15 @@
+<div class="card">
+    <img src="src/assets/img/<?= $listing['photo'] ?>" class="card-img-top" alt="Photo de <?= $listing['titre'] ?>">
+    <div class="card-body">
+        <h5 class="card-title">
+            <?= $listing['titre'] ?>
+        </h5>
+        <h5>
+            <span class="badge bg-primary"><?= $listing['prix'] ?>€</span>
+            <span class="badge bg-secondary"><?= $listing['surface'] ?>m²</span>
+        </h5>
+        <p class="card-text">
+            <?= $listing['description'] ?>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<!-- Affichages des evuentuels messages Flash -->
+<?php if (isset($flash)): ?>
+    <?php foreach ($flash as $msg): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <p><?= $msg ?></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<!-- Containeur des cartes des annonces -->
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <?php foreach ($listings as $listing): ?>
+        <div class="col">
+
+            <!-- Chaque annonce: une carte -->
+            <div class="card">
+                <img src="src/assets/img/<?= $listing['photo'] ?>" class="card-img-top"
+                     alt="Photo de <?= $listing['titre'] ?>">
+                <div class="card-body">
+                    <h5 class="card-title"><?= $listing['titre'] ?></h5>
+                    <h5>
+                        <span class="badge bg-primary"><?= $listing['prix'] ?>€</span>
+                        <span class="badge bg-secondary"><?= $listing['surface'] ?>m²</span>
+                    </h5>
+                    <p class="card-text description">
+                        <?php $desc = $listing['description']; ?>
+                        <?= $out = strlen($desc) > 50 ? substr($desc,0,50)."..." : $desc; ?>
+                    </p>
+                </div>
+                <div class="card-footer d-flex justify-content-end">
+                    <a href="listing.php?id=<?= $listing['id'] ?>" class="btn btn-warning">
+                        Voir fiche detaillee
+                    </a>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>

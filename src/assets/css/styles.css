@@ -1,0 +1,11 @@
+/**
+Exercice 4.1): Afficher les .. si le texte est trop long: Edition CSS
+ */
+/**
+
+.description {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+ */
