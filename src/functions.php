@@ -40,7 +40,8 @@ function render(string $template, array $values = [])
 function getAllListings(PDO $pdo)
 {
     // Affectation de la requete
-    $sql = 'SELECT * FROM immobilier.logement';
+    $sql = 'SELECT * FROM immobilier.logement
+            ORDER BY id DESC';
 
     // Preparation et execution
     $query = $pdo->prepare($sql);
