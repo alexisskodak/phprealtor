@@ -98,6 +98,29 @@ function invalidListing(array $listing)
     return false;
 }
 
+/**
+ * @param string $img_name
+ * @param int $img_size
+ * @param $img_ext
+ * @return false|string
+ */
+function invalidPhoto(string $img_name, int $img_size, $img_ext)
+{
+    // Taille maximale et verification
+    $max_size = 200000;
+    if ($img_size > $max_size) {
+        return 'Image trop grande';
+    }
+
+    // Type de fichiers acceptees et verification
+    $allowed_ext = array('jpg', 'jpeg', 'png');
+    if (!in_array($img_ext, $allowed_ext)) {
+        return 'Type de fichier non autorise';
+    }
+
+    return false;
+}
+
 function addListing(PDO $pdo, array $listing)
 {
     $sql = 'INSERT INTO immobilier.logement 
